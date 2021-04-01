@@ -1,21 +1,54 @@
 import { useState } from 'react'
 export const LoginForm = ({ Login, error }) => {
  
+    const loginURL='http://localhost:3000/login'
+    const [username, setUsername]= useState("");
+    const [password, setPassword]= useState("");
 
-    const [details, setDetails]= useState({username: "", password: ""})
+    const onChangeUsername = (e) =>{
+        const username= e.target.value
+        setUsername(username);
+    };
+
+    const onChangePassword = (e) =>{
+        const password= e.target.value
+            setPassword(password);
+    };
   
     const handleSubmit = (e) => {
         e.preventDefault();
-        Login(details)
+        console.log(username, password);
+        let userDetails={
+            username: username,
+            password: password
+        }
 
-    }
+        fetch(loginURL,{
+            method: 'POST',
+            header: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+            body: JSON.stringify(userDetails)
+        })
+        
+    };
 
     return (
 
     <form className="login_form" onSubmit={handleSubmit}>
         <h2>Login Here</h2>
-            <input type="username" name="username" placeholder="Username"  onChange={(e)=> setDetails({...details, username: e.target.value})} value={details.username} />
-             <input type="password" name="password" placeholder="Password"  onChange={(e)=> setDetails({...details, password: e.target.value})} value={details.password} />
+            <label htmlFor="username">Username</label>
+            <input 
+            type="text" 
+            name="username" 
+            value={username}
+            placeholder="Username"  
+            onChange={onChangeUsername}/>
+            <label htmlFor="password">Password</label>
+            <input 
+            type="text"
+             name="password" 
+             value={password}
+             placeholder="Password"  
+             onChange={onChangePassword}  />
         <button type="submit">Login</button>
     </form>
         

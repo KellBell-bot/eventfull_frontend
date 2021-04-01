@@ -10,8 +10,8 @@ function App() {
   const[user, setUser]= useState({username: "", password: ""});
   const [error, setError]= useState("");
 
-  const Login = details => {
-    console.log(details)
+  const Login = (username, password) => {
+    console.log(username, password)
   }
 
   const Logout = () => {
