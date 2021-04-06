@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { LoginForm } from './Components/LoginForm'
 import { Nav } from './Components/Nav';
@@ -7,12 +7,22 @@ import { UserDashboard } from './Pages/UserDashboard'
 
 function App() {
 
-  const[user, setUser]= useState({username: "", password: ""});
+  const[user, setUser]= useState({name: "", username: ""});
   const [error, setError]= useState("");
 
-  const Login = (username, password) => {
-    console.log(username, password)
-  }
+ useEffect(() =>{
+   const token= localStorage.getItem("token")
+   if(token){
+     fetch('http://localhost:3000/persist', {
+       headers:{Authorization: `Bearer ${token}`}
+     })
+     .then(response => response.json())
+     .then(data =>{
+              console.log(data)
+      //  setUser({name: data.name, username: data.username})  
+     })
+   }
+ }, [])
 
   const Logout = () => {
     console.log("Logged Out")
@@ -25,7 +35,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route path="/">
-              <LoginForm Login={Login} error={error}/>
+              <LoginForm />
             </Route>
           </Switch>
         </div> 

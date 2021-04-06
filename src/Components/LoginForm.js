@@ -1,5 +1,5 @@
 import { useState } from 'react'
-export const LoginForm = ({ Login, error }) => {
+export const LoginForm = () => {
  
     const loginURL='http://localhost:3000/login'
     const [username, setUsername]= useState("");
@@ -19,15 +19,23 @@ export const LoginForm = ({ Login, error }) => {
         e.preventDefault();
         console.log(username, password);
         let userDetails={
-            username: username,
-            password: password
+             username,
+            password
         }
 
-        fetch(loginURL,{
+        fetch(loginURL, {
+            
             method: 'POST',
             header: {'Accept': 'application/json', 'Content-Type': 'application/json'},
             body: JSON.stringify(userDetails)
         })
+        .then(response => response.json())
+        .then(userData => {
+            localStorage.setItem('token', userData.jwt);
+            console.log(userData)   
+        })
+        setUsername("")
+        setPassword("")
         
     };
 
