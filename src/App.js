@@ -7,7 +7,7 @@ import { UserDashboard } from './Pages/UserDashboard'
 
 function App() {
 
-  const[user, setUser]= useState({name: "", username: ""});
+  const[user, setUser]= useState({});
   const [error, setError]= useState("");
 
  useEffect(() =>{
@@ -18,8 +18,8 @@ function App() {
      })
      .then(response => response.json())
      .then(data =>{
-              console.log(data)
-      //  setUser({name: data.name, username: data.username})  
+              // console.log(data)
+       setUser({name: data.name, username: data.username})  
      })
    }
  }, [])
