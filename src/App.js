@@ -13,14 +13,14 @@ function App() {
  useEffect(() =>{
    const token= localStorage.getItem("token")
    if(token){
-     fetch('http://localhost:3000/persist', {
+     fetch('http://localhost:3000/auto_login', {
        headers:{Authorization: `Bearer ${token}`}
      })
      .then(response => response.json())
      .then(data =>{
-              // console.log(data)
-       setUser({name: data.name, username: data.username})  
-     })
+       setUser({data})
+       console.log(data)  
+      })
    }
  }, [])
 
