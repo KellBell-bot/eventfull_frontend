@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import "./app.css"
 import { LoginForm } from './Components/LoginForm'
-import { Nav } from './Components/Nav';
+import { Nav } from './Components/Navbar/Nav';
 import { Signup } from './Pages/Signup'
 import { UserDashboard } from './Pages/UserDashboard'
 
@@ -25,6 +26,7 @@ function App() {
  }, [])
 
   const Logout = () => {
+    localStorage.clear()
     console.log("Logged Out")
   }
  
@@ -36,6 +38,7 @@ function App() {
           <Switch>
             <Route path="/">
               <LoginForm />
+              <button onClick={Logout}>Logout</button>
             </Route>
           </Switch>
         </div> 
