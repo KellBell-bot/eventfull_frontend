@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
+import { useHistory } from 'react-router-dom'
 
 export const LoginForm = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory()
 
     const handleUsernameChange = (evt) => {
         setUsername(evt.target.value)
@@ -28,7 +30,7 @@ export const LoginForm = () => {
         .then(resp => resp.json())
         .then(data => {
             localStorage.setItem("token", data.jwt)
-            console.log(data)
+            history.push('/dashboard')
         })
         setUsername("")
         setPassword("")

@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import "./app.css"
 import { LoginForm } from './Components/LoginForm'
 import { Navbar } from './Components/Navbar/Navbar';
-import { Signup } from './Pages/Signup' 
 import { UserDashboard } from './Pages/UserDashboard'
 
 function App() {
@@ -19,8 +18,7 @@ function App() {
      })
      .then(response => response.json())
      .then(data =>{
-       setUser({data})
-       console.log(data)  
+       setUser({data}) 
       })
    }
  }, [])
@@ -31,18 +29,21 @@ function App() {
   }
  
   return (
+  
     <Router>
-      <div className="App">
         <Navbar/>
         <div className="content">
           <Switch>
-            <Route path="/">
+            <Route exact path="/">
               <LoginForm />
+              <button onClick={Logout}>Logout</button>
+            </Route>
+            <Route exact path="/dashboard">
+              <UserDashboard />
               <button onClick={Logout}>Logout</button>
             </Route>
           </Switch>
         </div> 
-      </div>
     </Router>
   );
 }
