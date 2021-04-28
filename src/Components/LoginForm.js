@@ -31,7 +31,7 @@ export const LoginForm = () => {
         .then(data => {
             localStorage.setItem("token", data.jwt)
             history.push('/dashboard')
-        })
+        }) 
         setUsername("")
         setPassword("")
     }

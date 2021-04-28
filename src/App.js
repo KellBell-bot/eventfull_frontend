@@ -7,7 +7,7 @@ import { UserDashboard } from './Pages/UserDashboard'
 
 function App() {
 
-  const[user, setUser]= useState({});
+  const[currentUser, setCurrentUser]= useState({});
   const [error, setError]= useState("");
 
  useEffect(() =>{
@@ -18,10 +18,14 @@ function App() {
      })
      .then(response => response.json())
      .then(data =>{
-       setUser({data}) 
+       setCurrentUser({data}) 
       })
    }
  }, [])
+
+ const handleLogin= () =>{
+
+ }
 
   const Logout = () => {
     localStorage.clear()
@@ -40,7 +44,7 @@ function App() {
             </Route>
             <Route exact path="/dashboard">
               <UserDashboard />
-              <button onClick={Logout}>Logout</button>
+              <button onClick={Logout}>Logout</button> 
             </Route>
           </Switch>
         </div> 

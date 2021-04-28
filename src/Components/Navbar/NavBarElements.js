@@ -47,13 +47,13 @@ export const MobileIcon = styled.div`
     @media screen and (max-width: 768px){
         display: block;
         position: absolute;
+        top: 0;
         right: 0;
-        // margin-top: 20px;
-        // margin-right: 20px;
-        transform: translate(-100%, 60%)
+        transform: translate(-100%, 60%);
         font-size: 1.8rem;
         cursor: pointer;
         color: #fff;
+        
     }
 `;
 export const NavMenu = styled.ul`
@@ -79,10 +79,10 @@ export const NavLinks = styled(LinkScroll)`
     align-items: ;
     text-decoration: none;
     padding: 0 1rem;
-    height: 100%
+    height: 100%;
     cursor: pointer;
 
-    &.active {
+    &:hover {
         border-bottom: 3px solid #01bf71;
     }
 `
@@ -109,7 +109,7 @@ export const NavBtnLink = styled(LinkRouter)`
     text-decoration: none;
 
     &:hover {
-        transition: all 0.2s ease-in-out
+        transition: all 0.2s ease-in-out;
         background: #fff;
         color: #010606;
     }
