@@ -3,13 +3,13 @@ import React from 'react'
 const Events = () => {
     return (
         <>
-        <EventsContainer>
+        {/* <EventsContainer>
             <Event>
                 <EventItem>
-                    
+
                 </EventItem>
             </Event>
-        </EventsContainer>
+        </EventsContainer> */}
             
         </>
     )

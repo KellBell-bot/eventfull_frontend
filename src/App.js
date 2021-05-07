@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import "./app.css"
 import { LoginForm } from './Components/LoginForm'
 import { Navbar } from './Components/Navbar/Navbar';
+import Sidebar from './Components/Sidebar/Sidebar';
 import { UserDashboard } from './Pages/UserDashboard'
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
   return (
   
     <Router>
+      <Sidebar/>
         <Navbar/>
         <div className="content">
           <Switch>
