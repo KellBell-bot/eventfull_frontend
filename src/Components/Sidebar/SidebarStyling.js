@@ -10,7 +10,7 @@ export const SidebarContainer= styled.aside`
     width: 100%;
     height: 100%;
     background: #0d0d0d;
-    display: grind;
+    display: grid;
     align-items: center;
     top: 0;
     left: 0;
@@ -41,11 +41,11 @@ export const SidebarWrapper = styled.div`
 export const SidebarMenu = styled.ul`
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 80px);
+    grid-template-rows: repeat(3, 80px);
     text-align: center;
 
     @media screen and (max-width: 480px){
-       grid-template-rows: repeat(6, 60px);
+       grid-template-rows: repeat(3, 60px);
     }
 `
 

@@ -1,22 +1,22 @@
 import React from 'react'
 import { SidebarContainer, Icon, CloseIcon, SidebarWrapper, SidebarMenu, SidebarLink, SideBtnWrap, SidebarRoute } from './SidebarStyling'
 
-const SideBar = () => {
+const SideBar = ({isOpen, toggle}) => {
     return (
-        <SidebarContainer>
-            <Icon>
-                <CloseIcon/>
+        <SidebarContainer isOpen={isOpen}>
+            <Icon onClick={toggle}>
+                <CloseIcon />
             </Icon>
-            <SidebarWrapper>
+            
                 <SidebarMenu>
-                    <SidebarLink to='about'>About</SidebarLink>
-                    <SidebarLink to='discover'>Discover</SidebarLink>
-                    <SidebarLink to='signup'>Sign up</SidebarLink>
+                    <SidebarLink to='about' isOpen={isOpen} >About</SidebarLink>
+                    <SidebarLink to='discover' isOpen={isOpen} >Discover</SidebarLink>
+                    <SidebarLink to='signup' isOpen={isOpen} >Sign up</SidebarLink>
                 </SidebarMenu>
                 <SideBtnWrap>
-                    <SidebarRoute to='/login'>Sign In</SidebarRoute>
+                    <SidebarRoute to='/login' isOpen={isOpen}>Sign In</SidebarRoute>
                 </SideBtnWrap>
-            </SidebarWrapper>
+            
         </SidebarContainer>
     )
 }
