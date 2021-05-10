@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Events } from '../Components/Events/Events'
+import { Events } from '../components/CalendarEvents/Events'
 
 export const UserDashboard = () => {
     const [user, setUser]=useState({})

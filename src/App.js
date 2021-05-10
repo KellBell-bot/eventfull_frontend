@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import "./app.css"
-import { LoginForm } from './Components/LoginForm'
-import { Navbar } from './Components/Navbar/Navbar';
-import Sidebar from './Components/Sidebar/Sidebar';
-import { UserDashboard } from './Pages/UserDashboard'
+import { LoginForm } from './components/LoginForm'
+import { UserDashboard } from './containers/UserDashboard'
+import Home from './pages/Home';
 
 function App() {
 
@@ -36,8 +35,7 @@ function App() {
   return (
   
     <Router>
-      <Sidebar/>
-        <Navbar/>
+      <Home />
         <div className="content">
           <Switch>
             <Route exact path="/">
