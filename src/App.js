@@ -37,7 +37,7 @@ function App() {
     <Router>
       <Home />
         <div className="content">
-          <Switch>
+          {/* <Switch>
             <Route exact path="/">
               <LoginForm />
               <button onClick={Logout}>Logout</button>
@@ -46,7 +46,7 @@ function App() {
               <UserDashboard />
               <button onClick={Logout}>Logout</button> 
             </Route>
-          </Switch>
+          </Switch> */}
         </div> 
     </Router>
   );
